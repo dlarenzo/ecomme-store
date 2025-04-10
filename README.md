@@ -42,3 +42,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 Branches for starting project
 
 - 1.0-setup
+- 2.0-homepage

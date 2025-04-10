@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+// These styles apply to every route in the application
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 
