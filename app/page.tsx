@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { stripe } from "@/lib/stripe";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default async function Home() {
   // Get list of products from Stripe
@@ -14,12 +16,24 @@ export default async function Home() {
     <div>
       <section>
         <div>
+          {/* SECTION 1 */}
           <div>
             <h2>Welcome to EComm Store</h2>
             <p>
               Discover our exclusive collection of products for the best prices.
             </p>
+            <Button asChild variant="default">
+              <Link href="/products"> See All Products </Link>
+            </Button>
           </div>
+
+          {/* SECTION 2 */}
+          <Image
+            alt="Banner Image"
+            width={450}
+            height={450}
+            src={products.data[1].images[0]}
+          />
         </div>
       </section>
     </div>
