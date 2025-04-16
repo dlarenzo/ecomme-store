@@ -13,7 +13,7 @@ export const ProductCard = ({ product }: Props) => {
   const price = product.default_price as Stripe.Price;
 
   return (
-    <Link href={"/products/1"}>
+    <Link href={`/products/${product.id}`} className="block h-full">
       <Card>
         {product.images && product.images[0] && (
           <div className="relative h-80 w-full">
