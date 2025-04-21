@@ -27,12 +27,12 @@ export const ProductCard = ({ product }: Props) => {
           </div>
         )}
         <CardHeader className="p-4">
-          <CardTitle className="text-xl font-bold text-gray-800">
+          <CardTitle className="text-xl font-bold text-gray-800 line-clamp-1">
             {product.name}
           </CardTitle>
           <CardContent className="p-2 flex-grow flex flex-col justify-between">
             {product.description && (
-              <p className="text-gray-600 text-sm mb-2">
+              <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                 {product.description}
               </p>
             )}
