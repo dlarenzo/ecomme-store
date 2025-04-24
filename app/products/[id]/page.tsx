@@ -4,10 +4,11 @@ import { ProductDetail } from "@/components/product-detail";
 export default async function ProductPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  console.log("Product ID:", params.id);
-  const product = await stripe.products.retrieve(params.id, {
+  const { id } = await params;
+  console.log("Product ID:", id);
+  const product = await stripe.products.retrieve(id, {
     expand: ["default_price"],
   });
 
