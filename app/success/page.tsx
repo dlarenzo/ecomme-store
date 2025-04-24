@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { useCartStore } from "@/store/cart-store";
-import { Button } from "@/components/ui/button";
+
 export default function SuccessPage() {
   // AUTOMATICALLY CLEAR CART
   const { clearCart } = useCartStore();
