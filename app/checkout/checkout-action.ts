@@ -1,4 +1,7 @@
+"use server";
+import { stripe } from "@/lib/stripe";
 import { CartItem } from "@/store/cart-store";
+import { redirect } from "next/navigation";
 
 export const checkoutAction = async (formData: FormData): Promise<void> => {
   const itemsJson = formData.get("items") as string;
@@ -7,7 +10,7 @@ export const checkoutAction = async (formData: FormData): Promise<void> => {
   // MAP CART ITEM
   const line_items = items.map((item: CartItem) => ({
     price_data: {
-      currency: "cad",
+      currency: "usd",
       product_data: { name: item.name },
       unit_amount: item.price,
     },
@@ -15,6 +18,16 @@ export const checkoutAction = async (formData: FormData): Promise<void> => {
   }));
 
   // CREATE A STRIPE CHECKOUT SESSION
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ["card"],
+    line_items,
+    mode: "payment",
+    success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+    cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/checkout`,
+  });
+
+  // REDIRECT TO THE CHECKOUT SESSION
+  redirect(session.url!);
 };
 
 // TO BE IMPLEMENTED IN THE app > checkout > page.tsx > form action= {}

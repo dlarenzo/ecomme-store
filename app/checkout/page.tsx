@@ -35,8 +35,8 @@ export default function CheckoutPage() {
             {items.map((item, key) => (
               <li key={key} className="flex flex-col gap-2 border-b pb-2x">
                 <div className="flex justify-between">
-                  <span>{item.name} </span>
-                  <span>
+                  <span className="pr-8">{item.name} </span>
+                  <span className="font-semibold">
                     ${((item.price * item.quantity) / 100).toFixed(2)}
                   </span>
                 </div>
@@ -57,7 +57,7 @@ export default function CheckoutPage() {
           </ul>
 
           {/* TOTAL AMOUNT OF CART */}
-          <div className="mt-4 border-t pt-2 text-lg font-semibold">
+          <div className="mt-4 border-t pt-2 text-lg font-semibold flex justify-end">
             Total: $ {(total / 100).toFixed(2)}
           </div>
         </CardContent>
