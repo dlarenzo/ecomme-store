@@ -43,3 +43,7 @@ Branches for starting project
 
 - 1.0-setup
 - 2.0-homepage
+- 3.0
+- 4.0-setupCart
+- 5.0-mobileMenu
+- 6.0-checkoutPage
